@@ -1,46 +1,32 @@
 package StringRelatedChallenges;
 
-public class ReverseTheCharactersAlone {
-	
+public class ReverseTheCharactersAlone {	
 public String reverseTheCharactersAlone(String input) { //ab-cd
-		
-		char[] array = input.toCharArray();
-		
-		int left = 0;
-		int right = array.length-1;
-		
-		while(left<right) {
-			
-			while(left<right && !Character.isLetter(array[left])) {
-				
-				left++;
-				
+		char[] chars = input.toCharArray();
+		int startIndex = 0;
+		int endIndex= chars.length-1;
+	
+		while(startIndex<endIndex) {
+			if(Character.isLetter(chars[startIndex]) && Character.isLetter(chars[endIndex])){
+				char temp = chars[startIndex];
+				chars[startIndex] = chars[endIndex];
+				chars[endIndex] = temp;
+				startIndex++;
+				endIndex--;
+			}else if(!Character.isLetter(chars[startIndex])){
+				startIndex++;
+			}else if(!Character.isLetter(chars[endIndex])){
+				endIndex--;
 			}
-			while(left<right && !Character.isLetter(array[right])) {
-				
-				right--;
-				
-			}
+		}
+		return new String(chars);
 			
-			char temp = array[left];
-			array[left] = array[right];
-			array[right] = temp;
-			
-			left++;
-			right--;
-			
-		 }
-		 return new String(array);	
-			
-	 }
-	
-	
-	
-	
-
-	public static void main(String[] args) {
-		
-
 	}
+	
+	public static void main(String[] args) {
+		ReverseTheCharactersAlone obj = new ReverseTheCharactersAlone();
+		System.out.println(obj.reverseTheCharactersAlone("a!!!b.c.d,e'f,ghi"));
+	}		
+		
 
 }
