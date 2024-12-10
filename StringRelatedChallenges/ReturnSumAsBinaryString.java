@@ -2,43 +2,41 @@ package StringRelatedChallenges;
 
 public class ReturnSumAsBinaryString {
 	
-	public String returnSumAsBinaryString(String string1, String string2) {
+	public String addBinaryNumbersRepresentedAsString(String A, String B) {
 		
-		if(string1 == null || string1.isEmpty() || string2 == null || string2.isEmpty()) {
-			
-			return "Empty String";
-			
-		}
+		int positionOfStringA = A.length()-1;
+		int positionOfStringB = B.length()-1;
 		
-		int position_1 = string1.length()-1;
-		int position_2 = string2.length()-1;
+		
 		int carry = 0;
-		
 		StringBuilder sb = new StringBuilder();
 		
-		while(position_1>=0 || position_2>=0 || carry>0) {
+		while(positionOfStringA>=0 || positionOfStringB>=0 || carry>0 ) {
 			
+	
+			int characterAtPositionA = positionOfStringA>=0?A.charAt(positionOfStringA)-'0':0;
+			int characterAtPositionB = positionOfStringB>=0?B.charAt(positionOfStringB)-'0':0;
 		
-			int value_1 = (position_1>=0)?string1.charAt(position_1) - '0':0;
-			int value_2 = (position_2>=0)?string2.charAt(position_2) - '0':0;
+			int sum = characterAtPositionA  + characterAtPositionB + carry;
 			
-			System.out.println(value_1);
-			System.out.println(value_2);
-			
-			int sum = value_1 + value_2 + carry;
-			System.out.println("sum is :" +sum);
 			sb.append(sum%2);
 			carry = sum/2;
-			System.out.println("carry is :"+carry);
-			position_1--;
-			position_2--;
+			
+			positionOfStringA--;
+			positionOfStringB--;
 			
 		}
+		
 		return sb.reverse().toString();
-	
+		
+		
 	}
-
+	
 	public static void main(String[] args) {
+		
+		ReturnSumAsBinaryString obj = new ReturnSumAsBinaryString();
+		System.out.println(obj.addBinaryNumbersRepresentedAsString("1010", "1011"));
+		
 		
 
 	}
