@@ -14,10 +14,11 @@ public  class NumberOfOccurences {
 		}
 		
 		for(Map.Entry<Integer, Integer> entry : map.entrySet() ) {
-		//	System.out.println(entry.getKey()+":"+ entry.getValue());
+			System.out.println(entry.getKey()+":"+ entry.getValue());
 			
 			if(entry.getValue()==1) {
 				System.out.println(entry.getKey());
+			
 			}	
 			
 			
