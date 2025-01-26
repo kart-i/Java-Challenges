@@ -2,7 +2,9 @@ package DynamicArrays;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class ListProblems {
 		
@@ -22,7 +24,7 @@ public class ListProblems {
 		
 	}
 	
-	public List<Character> findCommonCharacters(String[] words) {
+/*	public List<Character> findCommonCharacters(String[] words) {
 	
 	
 		int [] minimumFrequency = new int[26];
@@ -68,12 +70,51 @@ public class ListProblems {
 
 		return commonCharacters;
 
+	}	
+*/
+	
+	
+	public char[] findCommonCharacters() {
+		
+		String[] words = {"cool","lock","cook"};
+		
+		char[] charArray = words[0].toCharArray();
+		List <Character> list = new ArrayList<>();
+		
+		for(char charac:charArray) {
+			int count = 0;
+			for(int i=1;i<words.length;i++) {
+				
+				if(words[i].indexOf(charac) != -1) {
+					count++;
+				}
+			}
+			
+			if(count == words.length-1) {
+				list.add(charac);	
+			}			
+		}
+		
+		char[] result = new char[list.size()];
+		
+		for(int i=0; i<list.size();i++){
+			
+			result[i] = list.get(i);
+		}
+		return result;
+	
 	}
 	
 	
-
+	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
+		
+		ListProblems obj = new ListProblems();
+		
+		char[] re = obj.findCommonCharacters();
+		
+		System.out.println(Arrays.toString(re));
 		
 	}
 

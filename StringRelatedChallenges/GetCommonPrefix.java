@@ -1,7 +1,7 @@
 package StringRelatedChallenges;
 
 public class GetCommonPrefix {
-public String getCommonPrefix(String[] stringArray) {
+  /* public String getCommonPrefix(String[] stringArray) {
 		int start = 0;
 		boolean matches = true;
 		String subToCheck = "";
@@ -20,7 +20,36 @@ public String getCommonPrefix(String[] stringArray) {
 		 }	
 		 return "\"\"";
 	}
-
+   */
+	
+	
+	public String getCommonPrefix(String[] arr) {
+		
+		int start = 0;
+		int end = arr[0].length();
+		boolean matches = true;
+		
+		
+		
+		while(end>0) {
+			String prefix = arr[0].substring(start, end);	
+			for(String value : arr) {
+				matches =true;
+				if(!value.startsWith(prefix)){
+					end--;
+					matches = false;
+					break;
+				}
+			}
+			if(matches) {
+				return prefix;
+			}
+			
+		}
+		return "false";
+			
+	}
+	
 	public static void main(String[] args) {
 		GetCommonPrefix obj = new GetCommonPrefix();
 		String[] stringArray = new String[3];

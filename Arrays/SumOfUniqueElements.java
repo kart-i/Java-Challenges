@@ -6,31 +6,8 @@ import java.util.Map;
 public class SumOfUniqueElements {
 	
 	  public int sumOfUniqueElements(int[] nums) {
-
-//		  int sumOfElements = 0;
-	  
-//		  Set<Integer> unique = new HashSet<Integer>();
-	//
-//		  Set<Integer> duplicate = new HashSet<Integer>();
-	//
-//		  for(int element : nums) {
-	//
-//				if(unique.add(element)) {
-//					
-//					sumOfElements = sumOfElements + element;
-//					
-//				}
-//				else{
-//					
-//					if(duplicate.add(element)) {
-//						
-//						sumOfElements = sumOfElements - element;
-//					}
-	//
-//				}	
-//				
-//			}
-		   	
+// Using Frequency Array : - use this method for smaller size array
+	
 //		  	int[] frequency = new int[101];
 //		  	
 //		  	for(int num : nums) {
@@ -51,7 +28,8 @@ public class SumOfUniqueElements {
 //		  			
 //		  	}
 		  
-		   
+// Using Frequency Map : - use this for very large array of numbers
+		  
 		   Map <Integer, Integer> frequency = new HashMap <Integer,Integer>();
 		   
 		   for(int value : nums) {
