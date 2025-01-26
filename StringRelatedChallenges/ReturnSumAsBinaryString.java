@@ -1,53 +1,28 @@
 package StringRelatedChallenges;
 
 public class ReturnSumAsBinaryString {
-	
 	public String addBinaryNumbersRepresentedAsString(String A, String B) {
+		int positionOfStringA = A.length()-1;
+		int positionOfStringB = B.length()-1;
+		int carry = 0;
 		
-		int index1 = A.length();
-		int index2 = B.length();
+		StringBuilder sb = new StringBuilder();
 		
-		char char1 = A.charAt(index1-1);
-		char char2 = B.charAt(B.length()-1);
-		
-		int carry =0;
-		
-		int value1 = 0;
-		int value2 = 0;
-		
-		int sum = 0;
-		
-	while(index1>=0||index2>=0 || carry>0) {
-		
-		if(value1!=0) {
-			 value1 = char1 - 0;
-		}else {
-			 value1 = 0;
-		}
-		
-		if(value2!=0) {
-			 value2 = char2 - 0;
-		}else {
-			 value2 = 0;
-		}
-		
-		if(value1!=0||value2!=0||carry!=0) {
-			sum = value1+value2+carry;
-		}
-		
-		index1--;
-		index2--;
-	}	
-		
-		
-
+		while(positionOfStringA>=0 || positionOfStringB>=0 || carry>0 ) {
+			int characterAtPositionA = positionOfStringA>=0?A.charAt(positionOfStringA)-'0':0;
+			int characterAtPositionB = positionOfStringB>=0?B.charAt(positionOfStringB)-'0':0;
+			int sum = characterAtPositionA  + characterAtPositionB + carry;
 			
-	 }
-	
-	public static void main(String[] args) {
-		
+			sb.append(sum%2);
+			carry = sum/2;
+
+			positionOfStringA--;
+			positionOfStringB--;	
+		}
+		return sb.reverse().toString();	
+	}
+	public static void main(String[] args) {	
 		ReturnSumAsBinaryString obj = new ReturnSumAsBinaryString();
 		System.out.println(obj.addBinaryNumbersRepresentedAsString("1010", "1011"));
-		
 	}
 }
